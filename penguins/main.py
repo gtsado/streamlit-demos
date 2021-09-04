@@ -8,7 +8,7 @@ import pickle
 import sklearn
 from pathlib import Path
 
-st.title('Penguin Classifier')
+st.title('Penguin Classification App')
 st.write(
     'This app uses **six** inputs to predict the species of penguin using a model built on Palmer\'s Penguin\'s data')
 
@@ -61,7 +61,9 @@ st.subheader('Prediction of your species')
 st.write(
     f'We predict your penguin is of a {prediction_species} penguin with a probability of {prediction_probability: .0%}')
 
-st.image('feature_importance.png')
+
+feature_importance = Path(__file__).parents[0] / 'feature_importance.png'
+st.image(feature_importance)
 
 st.write('Below are histograms for each continuous variable separated by penguin species.'
          'The verticle line represents the inputted value')
