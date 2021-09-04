@@ -7,6 +7,7 @@ import time
 import pickle
 import sklearn
 from pathlib import Path
+from PIL import Image
 
 st.title('Penguin Classification App')
 st.write(
@@ -63,7 +64,8 @@ st.write(
 
 
 feature_importance = Path(__file__).parents[0] / 'feature_importance.png'
-st.image(feature_importance)
+image = Image.open(feature_importance)
+st.image(image)
 
 st.write('Below are histograms for each continuous variable separated by penguin species.'
          'The verticle line represents the inputted value')
