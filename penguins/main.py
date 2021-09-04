@@ -18,8 +18,11 @@ penguins = pd.read_csv(penguin_csv)
 penguins['sex'] = penguins.sex.str.title()
 # print(penguins.head())
 
-random_forest_pickle = open('random_forest_penguin.pickle', 'rb')
-mapping_pickle = open('penguin_targets.pickle', 'rb')
+rf_pickle = Path(__file__).parents[0] / 'random_forest_penguin.pickle'
+map_pickle = Path(__file__).parents[0] / 'penguin_targets.pickle'
+
+random_forest_pickle = open(rf_pickle, 'rb')
+mapping_pickle = open(map_pickle, 'rb')
 
 random_forest = pickle.load(random_forest_pickle)
 mapping = pickle.load(mapping_pickle)
