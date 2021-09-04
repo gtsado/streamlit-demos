@@ -6,12 +6,15 @@ import pandas as pd
 import time
 import pickle
 import sklearn
+from pathlib import Path
 
 st.title('Penguin Classifier')
 st.write(
     'This app uses **six** inputs to predict the species of penguin using a model built on Palmer\'s Penguin\'s data')
 
-penguins = pd.read_csv('penguins.csv')
+penguin_csv = Path(__file__).parents[1] / 'penguins.csv'
+
+penguins = pd.read_csv(penguin_csv)
 penguins['sex'] = penguins.sex.str.title()
 # print(penguins.head())
 
@@ -65,7 +68,7 @@ numerical_inputs = [bill_length, bill_depth, flipper_length]
 
 for i, feature in enumerate(numerical_features):
     fig, ax = plt.subplots()
-    ax =  sns.displot(x=penguins[feature], hue=penguins['species'])
-    plt.axvline(numerical_inputs[i], color='r', linewidth = 2)
+    ax = sns.displot(x=penguins[feature], hue=penguins['species'])
+    plt.axvline(numerical_inputs[i], color='r', linewidth=2)
     plt.title(f'{feature} by Species')
     st.pyplot(ax)
