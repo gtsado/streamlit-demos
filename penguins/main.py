@@ -12,7 +12,7 @@ st.title('Penguin Classifier')
 st.write(
     'This app uses **six** inputs to predict the species of penguin using a model built on Palmer\'s Penguin\'s data')
 
-penguin_csv = Path(__file__).parents[0] / 'penguins.csv'
+penguin_csv = Path(__file__).parents[1] / 'penguins.csv'
 
 penguins = pd.read_csv(penguin_csv)
 penguins['sex'] = penguins.sex.str.title()
